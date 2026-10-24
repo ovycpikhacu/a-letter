@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Knight's Salute</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="snow" id="snow" aria-hidden="true"></div>
+  <div class="wind" id="wind" aria-hidden="true"></div>
+
+  <div class="topbar">
+    <div class="lang" role="group" aria-label="Language / 言語">
+      <button data-lang="en" aria-pressed="true">English</button>
+      <button data-lang="ja" aria-pressed="false">日本語</button>
+    </div>
+    <div class="right">
+      <button class="btn" id="skipBtn" data-i18n="skip">Skip animation</button>
+      <div class="amenu" id="amenu" hidden>
+        <button class="btn" id="amBtn" aria-expanded="false" aria-controls="amPanel"><span aria-hidden="true">&#128266;</span> <span data-i18n="audio">Audio</span></button>
+        <div class="ampanel" id="amPanel" hidden>
+          <p class="amnote" data-i18n="audioNote">Eula's voice (Japanese)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Welcome: sealed letter slides in on a frosted gust -->
+    <section id="welcome">
+      <h1 data-i18n="title">A Knight's Salute</h1>
+      <p data-i18n="intro">A sealed letter from Eula Lawrence.</p>
+      <div class="envelope">
+        <div class="sheet"></div>
+        <div class="pocket"></div>
+        <div class="flap"></div>
+        <button class="seal" id="sealBtn" data-i18n-aria="sealLabel" aria-label="Break the seal and open the letter">
+          <img src="assets/images/seal.png" alt="">
+        </button>
+      </div>
+      <p data-i18n="hint">Break the seal to open the letter.</p>
+    </section>
+
+    <!-- Letter -->
+    <section id="letter" aria-labelledby="letterTitle">
+      <div class="wrap">
+        <article class="paper" id="mainPaper">
+          <h2 id="letterTitle" tabindex="-1" data-i18n="letterTitle">A Letter from Eula</h2>
+          <p class="meta"><span data-i18n="to">For {name}</span><br><span data-i18n="meta">{degree} · {date}</span></p>
+
+          <div id="body"></div>
+
+          <button class="btn" id="psBtn" data-i18n="psBtn">Unfold the postscript</button>
+        </article>
+        <article class="paper ps" id="ps" hidden>
+          <div id="psBody"></div>
+        </article>
+
+        <!-- Photo tucked into the side of the letter -->
+        <button class="photo-tab" id="photoTab" data-i18n-aria="photoLabel" aria-label="Open the photo">
+          <span class="ph" aria-hidden="true"></span>
+          <span class="lbl" data-i18n="photoTab">Photo</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="photoDialog">
+    <figure>
+      <img id="photoImg" alt="">
+      <figcaption data-i18n="photoCap">[Photo caption]</figcaption>
+    </figure>
+    <button class="btn" id="closePhoto" data-i18n="close">Close</button>
+  </dialog>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
